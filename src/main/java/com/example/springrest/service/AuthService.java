@@ -18,10 +18,6 @@ public class AuthService {
     }
 
     public List<Authorities> getAuthorities(User user) {
-        if (isEmpty(user.getName()) || isEmpty(user.getPass())) {
-            throw new InvalidCredentials("User name or password is empty");
-        }
-
         List<Authorities> userAuthorities = authRepository.getUserAuthorities(user);
         if (isEmpty(userAuthorities)) {
             throw new UnauthorizedUser("Unknown user " + user);

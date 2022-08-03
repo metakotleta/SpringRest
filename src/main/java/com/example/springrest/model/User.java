@@ -1,7 +1,7 @@
 package com.example.springrest.model;
 
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.util.Objects;
 
 public class User {
@@ -10,7 +10,11 @@ public class User {
         this.pass = pass;
     }
 
+    @NotBlank
+    @Size(max = 20)
     private String name;
+    @NotBlank
+    @Size(min = 4)
     private String pass;
 
     public String getName() {
